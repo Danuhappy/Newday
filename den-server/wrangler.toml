@@ -7,7 +7,7 @@ compatibility_date = "2024-09-23"
 crons = ["* * * * *"]
 
 [vars]
-VAPID_SUBJECT = "https://danuhappy.github.io/tral/den/"
+VAPID_SUBJECT = "https://danuhappy.github.io/Newday/den/"
 
 # База данных. database_id подставляется после команды `wrangler d1 create moy-den`
 [[d1_databases]]

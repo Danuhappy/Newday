@@ -7,7 +7,7 @@ const sql = new DatabaseSync(':memory:');
 const norm = v => v === undefined ? null : v;
 function prep(q){ let args=[]; const o={ bind(...a){args=a.map(norm);return o}, async run(){sql.prepare(q).run(...args);return {success:true}}, async first(){return sql.prepare(q).get(...args)??null}, async all(){return {results:sql.prepare(q).all(...args)}}, _x(){ return /^\s*select/i.test(q)? sql.prepare(q).all(...args): sql.prepare(q).run(...args)} }; return o }
 const DB = { prepare: prep, async batch(list){ sql.exec('BEGIN'); try{ const r=list.map(s=>s._x()); sql.exec('COMMIT'); return r }catch(e){ sql.exec('ROLLBACK'); throw e } } };
-const env = { DB, VAPID_PUBLIC: V.pub, VAPID_PRIVATE_JWK: JSON.stringify(V.jwk), VAPID_SUBJECT: 'https://danuhappy.github.io/tral/den/' };
+const env = { DB, VAPID_PUBLIC: V.pub, VAPID_PRIVATE_JWK: JSON.stringify(V.jwk), VAPID_SUBJECT: 'https://danuhappy.github.io/Newday/den/' };
 // --- fake push service ---
 const pushes=[]; const realFetch=globalThis.fetch;
 globalThis.fetch = async (url, init) => { pushes.push({url, init}); return new Response(null,{status:201}) };
